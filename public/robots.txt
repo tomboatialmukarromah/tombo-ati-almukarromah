@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /login
+Disallow: /dashboard
+Disallow: /studio/
+
+Sitemap: https://RadizJoster-web.github.io/tombo-ati/sitemap.xml
