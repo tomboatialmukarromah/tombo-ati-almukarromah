@@ -25,7 +25,7 @@ export default function AboutIntro() {
             <img
               src="/images/about image.jpeg"
               alt="Ustadz Muhammad Yandi bin Jajang Jumena, Pendiri Tombo Ati Al Mukarramah"
-              className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
+              className="w-full h-full object-cover transition-all duration-500"
               loading="lazy"
               width="352"
               height="469"
