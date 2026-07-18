@@ -2,7 +2,7 @@ export const dataSteps = [
   {
     id: "01",
     title: "Isi Formulir",
-    text: "Lengkapi data dan berkas pendaftaran pada formulir yang tersedia.",
+    text: "Lengkapi data dan berkas pendaftaran pada formulir yang tersedia tanpa Login.",
   },
   {
     id: "02",

@@ -14,12 +14,11 @@ export default function Footer() {
           {/* KOLOM 1: IDENTITAS ORGANISASI */}
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">
-              <div
-                className="text-xl md:text-2xl text-primary"
-                aria-hidden="true"
-              >
-                <FaHouseChimneyMedical />
-              </div>
+              <img
+                src="/favicon.jpeg"
+                alt="Baner tombo ati"
+                className="object-cover w-12 h-12 rounded-full"
+              />
               <span className="text-xl font-heading font-bold text-dark tracking-tight leading-none select-none">
                 Tombo Ati
                 <span className="text-primary ml-1">Al Mukarramah</span>

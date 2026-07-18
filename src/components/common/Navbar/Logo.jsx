@@ -1,27 +1,22 @@
 import { HashLink } from "react-router-hash-link";
-import { FaHouseChimneyMedical } from "react-icons/fa6";
 
-export default function Logo() {
+export default function Logo({ scrollWithOffset }) {
   return (
     <HashLink
       to="/#beranda"
-      scroll={(el) => el.scrollIntoView({ behavior: "smooth", block: "start" })}
-      className="flex items-center gap-2.5 group outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 rounded-md transition-all duration-300"
-      aria-label="Rumah Rukiah Tombo Ati Al Mukarramah - Kembali ke Beranda"
+      scroll={scrollWithOffset}
+      className="group flex items-center gap-2.5 outline-none relative z-50"
     >
-      {/* ICON CONTAINER: Konsistensi visual & efek scaling saat hover */}
       <div
-        className="text-xl md:text-2xl text-primary group-hover:text-accent group-hover:scale-110 transition-all duration-300 ease-out"
+        className="text-xl text-primary group-hover:text-accent duration-150"
         aria-hidden="true"
       >
-        <FaHouseChimneyMedical />
-      </div>
-
-      {/* TEXT BRANDING: Dioptimalkan untuk keterbacaan tinggi */}
-      <span className="text-xl md:text-2xl font-heading font-bold text-dark tracking-tight leading-none select-none">
-        Tombo
-        <span className="text-primary group-hover:text-accent transition-colors duration-300 ml-1">
-          Ati
+        <img src="/favicon.jpeg" alt="Baner tombo ati" className="object-cover w-12 h-12 rounded-full" />
+      </div>  
+      <span className="text-xl font-heading font-bold text-dark tracking-tight">
+        Tombo Ati
+        <span className="text-primary ml-1 group-hover:text-accent duration-150">
+          Al Mukarramah
         </span>
       </span>
     </HashLink>
