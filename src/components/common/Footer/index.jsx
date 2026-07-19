@@ -2,6 +2,7 @@ import { menuNavigasi } from "../../../assets/menuNavigasi";
 import { contactDetails } from "../../../assets/dataContact";
 import { dataSocialMedia } from "../../../assets/dataSocialMedia";
 import { FaHouseChimneyMedical } from "react-icons/fa6";
+import { HashLink } from "react-router-hash-link";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -59,12 +60,18 @@ export default function Footer() {
               <ul className="space-y-2.5 list-none p-0 m-0">
                 {menuNavigasi.map((menu, index) => (
                   <li key={index}>
-                    <a
-                      href={menu.url}
+                    <HashLink
+                      to={menu.url}
+                      scroll={(el) =>
+                        el.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        })
+                      }
                       className="font-body text-sm text-muted hover:text-primary transition-colors duration-150 block py-0.5"
                     >
                       {menu.label}
-                    </a>
+                    </HashLink>
                   </li>
                 ))}
               </ul>
