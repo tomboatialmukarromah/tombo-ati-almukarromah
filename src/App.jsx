@@ -1,6 +1,7 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { supabase } from "./supabaseClient";
+import { Analytics } from "@vercel/analytics/react";
 
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
@@ -64,39 +65,47 @@ function App() {
       {!isPrivatePath && <Navbar />}
 
       <main className="flex-grow">
-        <Suspense fallback={<div className="w-full min-h-[50vh] flex items-center justify-center bg-light"><div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div></div>}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/aktifitas" element={<ActivityPage />} />
-          <Route path="/pendaftaran" element={<RegistrationPage />} />
+        <Suspense
+          fallback={
+            <div className="w-full min-h-[50vh] flex items-center justify-center bg-light">
+              <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
+            </div>
+          }
+        >
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/aktifitas" element={<ActivityPage />} />
+            <Route path="/pendaftaran" element={<RegistrationPage />} />
 
-          {/* FIX NO 1: Bungkus LoginPage dengan PublicRoute */}
-          <Route
-            path="/login"
-            element={
-              <PublicRoute session={session}>
-                <LoginPage />
-              </PublicRoute>
-            }
-          />
+            {/* FIX NO 1: Bungkus LoginPage dengan PublicRoute */}
+            <Route
+              path="/login"
+              element={
+                <PublicRoute session={session}>
+                  <LoginPage />
+                </PublicRoute>
+              }
+            />
 
-          {/* RUTE UTAMA DASHBOARD */}
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute session={session}>
-                <DashboardPage />
-              </ProtectedRoute>
-            }
-          />
+            {/* RUTE UTAMA DASHBOARD */}
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute session={session}>
+                  <DashboardPage />
+                </ProtectedRoute>
+              }
+            />
 
-          <Route path="/studio/*" element={<AdminStudio />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+            <Route path="/studio/*" element={<AdminStudio />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </Suspense>
       </main>
 
       {!isPrivatePath && <Footer />}
+      
+      <Analytics />
     </div>
   );
 }
